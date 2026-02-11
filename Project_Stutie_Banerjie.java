@@ -1,3 +1,9 @@
+/**
+   Name: Stutie Banerjie
+   Class: CSC 251 - Advanced Java Programming
+   Date: 2.10.2026
+*/
+
 import java.util.Scanner;
 
 public class Project_Stutie_Banerjie {
