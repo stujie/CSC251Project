@@ -199,14 +199,17 @@ public class Policy {
       return weight;
    }
    
+<<<<<<< HEAD
    /** 
     * calculate the BMI of the policyholder
     * @return the calculated BMI
    */
+
    public double calculateBMI () {
       return (weight * 703.0)/(height * height);
    }
    
+
    /** 
     * calculate the insurance policy price based on the
     * age, smoking status, and BMI of the policy holder
@@ -220,7 +223,8 @@ public class Policy {
       if (age > 50) {
          price += 75.0;
       }
-      if (smokingStatus.equals("smoker")) {
+
+      if (smokingStatus.equalsIgnoreCase("smoker")) {
          price += 100.0;
       }
       if (bmi > 35.0) {
