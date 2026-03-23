@@ -74,19 +74,11 @@ public class Project_Stutie_Banerjie {
          else {
             nonSmoker++;
          }
-      }  
-            
-      // final output  
-      System.out.println("Policy Number: " + policyNumber);
-      System.out.println("Provider Name: " + providerName);
-      System.out.println("Policyholder's First Name: " + firstName);
-      System.out.println("Policyholder's Last Name: " + lastName);
-      System.out.println("Policyholder's Age: " + age);
-      System.out.println("Policyholder's Smoking Status: " + smokingStatus);
-      System.out.println("Policyholder's Height: " + height + " inches");
-      System.out.println("Policyholder's Weight: " + weight + " pounds");
-      System.out.printf("Policyholder's BMI: %.2f%n", user.calculateBMI());     
-      System.out.printf("Policy Price: $%.2f%n", user.calculatePolicyPrice());                   
+      }        
+      
+      // display totals for smoker and non-smoker counts
+      System.out.println("The number of policies with a smoker is: " + smoker); 
+      System.out.println("The number of policies with a non-smoker is: " + nonSmoker);                               
 
    }
 }

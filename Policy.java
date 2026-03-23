@@ -199,7 +199,6 @@ public class Policy {
       return weight;
    }
    
-<<<<<<< HEAD
    /** 
     * calculate the BMI of the policyholder
     * @return the calculated BMI
