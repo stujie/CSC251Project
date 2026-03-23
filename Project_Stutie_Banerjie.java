@@ -57,7 +57,7 @@ public class Project_Stutie_Banerjie {
       System.out.println("Policyholder's Smoking Status: " + smokingStatus);
       System.out.println("Policyholder's Height: " + height + " inches");
       System.out.println("Policyholder's Weight: " + weight + " pounds");
-      System.out.printf("Policyholder's BMI: %.2f%n", user.calcBMI());     
-      System.out.printf("Policy Price: $%.2f%n", user.calcPrice());                   
+      System.out.printf("Policyholder's BMI: %.2f%n", user.calculateBMI());     
+      System.out.printf("Policy Price: $%.2f%n", user.calculatePolicyPrice());                   
    }
 }

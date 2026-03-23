@@ -93,19 +93,19 @@ public class Policy {
    }
    
    // method to calculate BMI of the policyholder
-   public double calcBMI () {
+   public double calculateBMI () {
       return (weight * 703.0)/(height * height);
    }
    
    // method to calculate the price of the insurance policy
-   public double calcPrice () {
+   public double calculatePolicyPrice () {
       double price = 600.0;
-      double bmi = calcBMI();
+      double bmi = calculateBMI();
       
       if (age > 50) {
          price += 75.0;
       }
-      if (smokingStatus == "smoker") {
+      if (smokingStatus.equalsIgnoreCase("smoker")) {
          price += 100.0;
       }
       if (bmi > 35.0) {
