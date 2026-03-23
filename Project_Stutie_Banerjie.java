@@ -12,6 +12,10 @@ public class Project_Stutie_Banerjie {
       // arraylist - stores policy objects
       ArrayList<Policy> policies = new ArrayList<>();
       
+      // counter variables
+      int smoker = 0;
+      int nonSmoker = 0;
+      
       // read from file - policy information . txt
       File file = new File("PolicyInformation.txt");
       
@@ -59,9 +63,21 @@ public class Project_Stutie_Banerjie {
          
          System.out.printf("Policyholder's BMI: %.2f%n", user.calculateBMI());     
          System.out.printf("Policy Price: $%.2f%n", user.calculatePolicyPrice());
+         
+         // space between individual policies
+         System.out.println();
+         
+         // increment correct counter variable dependant on smoking status
+         if (user.getSmokingStatus().equalsIgnoreCase("smoker")) {
+            smoker++;
+         }
+         else {
+            nonSmoker++;
+         }
+      }  
       
-      // space between individual policies
-      System.out.println();
-      }                   
+      // display totals for smoker and non-smoker counts
+      System.out.println("The number of policies with a smoker is: " + smoker); 
+      System.out.println("The number of policies with a non-smoker is: " + nonSmoker);             
    }
 }
