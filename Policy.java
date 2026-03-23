@@ -33,6 +33,7 @@ public class Policy {
     * @param num - policy number
     * @param pName - provider name
     * @param fName - policy holder's first name
+    * @param lName - policy holder's last name
     * @param a - policy holder's age
     * @param status - policy holder's smoking status (smoker or non-smoker)
     * @param h - policy holder's height (in inches)
