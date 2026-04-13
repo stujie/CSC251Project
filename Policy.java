@@ -95,11 +95,18 @@ public class Policy {
    
    /** 
     * gets policy holder 
-    * @return policy holder information
+    * @return policy holder information as a deep copy
    */
    
    public PolicyHolder getPolicyHolder () {
-      return policyHolder;
+      return new PolicyHolder(
+         policyHolder.getFirstName(),
+         policyHolder.getLastName(),
+         policyHolder.getAge(),
+         policyHolder.getSmokingStatus(),
+         policyHolder.getHeight(),
+         policyHolder.getWeight()
+      );
    }
 
    /** 

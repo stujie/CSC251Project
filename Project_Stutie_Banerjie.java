@@ -18,7 +18,6 @@ public class Project_Stutie_Banerjie {
       
       // read from file - policy information . txt
       File file = new File("PolicyInformation.txt");
-      
       Scanner policyFile = new Scanner(file);
       
       // read till end of file
@@ -39,9 +38,12 @@ public class Project_Stutie_Banerjie {
          double height = policyFile.nextDouble();
          double weight = policyFile.nextDouble();
          
+         // create POlicyHolder object
+         PolicyHolder ph = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+         
          
          // instantiate a Policy object
-         Policy user = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
+         Policy user = new Policy(policyNumber, providerName, ph);
          
          // add to arraylist
          policies.add(user);
@@ -52,31 +54,23 @@ public class Project_Stutie_Banerjie {
       
       // output all polices per user in array list  
       for (Policy user : policies) {
-         System.out.println("Policy Number: " + user.getPolicyNumber());
-         System.out.println("Provider Name: " + user.getProviderName());
-         System.out.println("Policyholder's First Name: " + user.getFirstName());
-         System.out.println("Policyholder's Last Name: " + user.getLastName());
-         System.out.println("Policyholder's Age: " + user.getAge());
-         System.out.println("Policyholder's Smoking Status: " + user.getSmokingStatus());
-         System.out.println("Policyholder's Height: " + user.getHeight() + " inches");
-         System.out.println("Policyholder's Weight: " + user.getWeight() + " pounds");
+         // calls toString methods per user 
+         System.out.println(user);
          
-         System.out.printf("Policyholder's BMI: %.2f%n", user.calculateBMI());     
-         System.out.printf("Policy Price: $%.2f%n", user.calculatePolicyPrice());
-         
-         // space between individual policies
-         System.out.println();
-         
-         // increment correct counter variable dependant on smoking status
-         if (user.getSmokingStatus().equalsIgnoreCase("smoker")) {
+         // smoker counter increments
+         if(user.getPolicyHolder().getSmokingStatus().equalsIgnoreCase("smoker")) {
             smoker++;
          }
          else {
             nonSmoker++;
          }
+         
+         // spacing
+         System.out.println();
       }        
       
-      // display totals for smoker and non-smoker counts
+      // counter outprint
+      System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
       System.out.println("The number of policies with a smoker is: " + smoker); 
       System.out.println("The number of policies with a non-smoker is: " + nonSmoker);                               
 
