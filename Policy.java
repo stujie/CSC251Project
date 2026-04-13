@@ -9,6 +9,7 @@ public class Policy {
    
    private int policyNumber;
    private String providerName;
+   private PolicyHolder policyHolder;
    
    /**
     * no-arg constructor
@@ -17,6 +18,7 @@ public class Policy {
    public Policy () {
       policyNumber = 0;
       providerName = null;
+      policyHolder = null;
    }
    
    /** 
@@ -26,9 +28,10 @@ public class Policy {
     * @param pName - provider name
    */
    
-   public Policy (int num, String pName) {
+   public Policy (int num, String pName, PolicyHolder ph) {
       policyNumber = num;
-      providerName = pName;    
+      providerName = pName;  
+      policyHolder = ph;  
    }
    
    // mutator (setter) methods
@@ -52,10 +55,14 @@ public class Policy {
    }
    
    /** 
-    * sets policy holder's first name
-    * @param fName - the policy holder's first name to be set
+    * sets the policy holder
+    * @param ph - the policy holder
    */
    
+   
+   public void setPolicyHolder (PolicyHolder ph) {
+      policyHolder = ph;
+   }   
    
    // accesor (getter) methods
    
@@ -77,22 +84,31 @@ public class Policy {
       return providerName;
    }
    
+   /** 
+    * gets policy holder 
+    * @return policy holder information
+   */
+   
+   public PolicyHolder getPolicyHolder () {
+      return policyHolder;
+   }
+   
 
    /** 
     * calculate the insurance policy price based on the
-    * age, smoking status, and BMI of the policy holder
+    * policy holder information
     * @return the total policy price
    */
    
    public double calculatePolicyPrice () {
       double price = 600.0;
-      double bmi = calculateBMI();
+      double bmi = policyHolder.calculateBMI();
       
-      if (age > 50) {
+      if (policyHolder.getAge() > 50) {
          price += 75.0;
       }
 
-      if (smokingStatus.equalsIgnoreCase("smoker")) {
+      if (policyHolder.getSmokingStatus().equalsIgnoreCase("smoker")) {
          price += 100.0;
       }
       if (bmi > 35.0) {
@@ -100,5 +116,16 @@ public class Policy {
       } 
       
       return price;
+   }
+   
+   /**
+    * toString method
+    * returns policy holder information
+   */
+   public String toString() {
+      return "Policy Number: " + policyNumber + "\n" +
+          "Provider Name: " + providerName + "\n" +
+          policyHolder.toString() +
+          String.format("Policy Price: $%.2f\n", calculatePolicyPrice());
    }
 }
