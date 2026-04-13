@@ -11,6 +11,9 @@ public class Policy {
    private String providerName;
    private PolicyHolder policyHolder;
    
+   // static counter
+   private static int policyCount = 0;
+   
    /**
     * no-arg constructor
     * initializes all fields to default values
@@ -19,6 +22,9 @@ public class Policy {
       policyNumber = 0;
       providerName = null;
       policyHolder = null;
+      
+      // increment counter
+      policyCount++;
    }
    
    /** 
@@ -31,7 +37,10 @@ public class Policy {
    public Policy (int num, String pName, PolicyHolder ph) {
       policyNumber = num;
       providerName = pName;  
-      policyHolder = ph;  
+      policyHolder = ph; 
+      
+      // increment counter
+      policyCount++; 
    }
    
    // mutator (setter) methods
@@ -92,7 +101,15 @@ public class Policy {
    public PolicyHolder getPolicyHolder () {
       return policyHolder;
    }
-   
+
+   /** 
+    * static getter 
+    * @return policy count
+   */
+   public static int getPolicyCount() {
+      return policyCount;
+   }
+
 
    /** 
     * calculate the insurance policy price based on the
